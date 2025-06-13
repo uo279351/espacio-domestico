@@ -103,7 +103,7 @@ const ChatSection = () => {
         <div className="chat-section-content">
           <div className="chat-section-header" onClick={() => setIsExpanded(!isExpanded)}>
             <h2>¿Tienes alguna pregunta?</h2>
-            <p>Nuestro asistente virtual está aquí para ayudarte</p>
+            <p>Nuestro asistente virtual está aquí para ayudarte con la Inteligencia Artificial mas puntera</p>
             <button className="expand-button">
               {isExpanded ? '−' : '+'}
             </button>
