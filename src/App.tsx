@@ -4,6 +4,14 @@ import './App.css'
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const slides = [
+    '/img/img_carrousel_1.jpg',
+    '/img/img_carrousel_2.jpg',
+    '/img/img_carrousel_3.jpg',
+    '/img/img_carrousel_4.jpg',
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +22,27 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => {
+        const next = prev + 1;
+        return next >= slides.length ? 0 : next;
+      });
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  // Añadir un efecto para manejar la transición final
+  useEffect(() => {
+    if (currentSlide === slides.length - 1) {
+      const timer = setTimeout(() => {
+        setCurrentSlide(0);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [currentSlide, slides.length]);
+
   return (
     <div className="app">
       <header 
@@ -23,7 +52,10 @@ function App() {
       >
         <div className="container">
           <nav className="nav">
-            <a href="/" className="logo-text">Espacio Doméstico</a>
+            <a href="/" className="logo">
+              <img src="/img/logo_espacio_domestico.webp" alt="Espacio Doméstico Logo" className="logo-image" />
+              <span className="logo-text">Espacio Doméstico</span>
+            </a>
             <ul className="nav-links">
               <li><a href="#productos">Productos</a></li>
               <li><a href="#nosotros">Nosotros</a></li>
@@ -48,6 +80,24 @@ function App() {
                 <a href="#productos" className="button button-primary">Explorar Productos</a>
                 <a href="#contacto" className="button button-secondary">Contactar</a>
               </div>
+            </div>
+          </div>
+          <div className="hero-carousel">
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
+                style={{ backgroundImage: `url(${slide})` }}
+              />
+            ))}
+            <div className="carousel-indicators">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  className={`carousel-indicator ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(index)}
+                />
+              ))}
             </div>
           </div>
         </section>
