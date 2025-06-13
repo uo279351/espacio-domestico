@@ -130,27 +130,27 @@ function App() {
             <div className="category-grid">
               <div className="category-card">
                 <div className="category-image">
-                  <img src="/electrodomesticos.jpg" alt="Electrodomésticos" />
+                  <img src="/img/accesorios.avif" alt="Accesorios" className="category-image" />
+                </div>
+                <h3>Accesorios</h3>
+                <p>Encuentra los mejores accesorios para tu hogar</p>
+                <a href="#accesorios" className="button button-text">Ver más →</a>
+              </div>
+              <div className="category-card">
+                <div className="category-image">
+                  <img src="/img/electrodomesticos.png" alt="Electrodomésticos" className="category-image" />
                 </div>
                 <h3>Electrodomésticos</h3>
-                <p>Refrigeradores, lavadoras, microondas y más</p>
+                <p>Electrodomésticos de última generación</p>
                 <a href="#electrodomesticos" className="button button-text">Ver más →</a>
               </div>
               <div className="category-card">
                 <div className="category-image">
-                  <img src="/muebles.jpg" alt="Muebles" />
+                  <img src="/img/muebles.jpg" alt="Muebles" className="category-image" />
                 </div>
                 <h3>Muebles</h3>
-                <p>Sofás, mesas, sillas y decoración</p>
+                <p>Muebles de diseño para tu hogar</p>
                 <a href="#muebles" className="button button-text">Ver más →</a>
-              </div>
-              <div className="category-card">
-                <div className="category-image">
-                  <img src="/accesorios.jpg" alt="Accesorios" />
-                </div>
-                <h3>Accesorios</h3>
-                <p>Todo para complementar tu hogar</p>
-                <a href="#accesorios" className="button button-text">Ver más →</a>
               </div>
             </div>
           </div>
