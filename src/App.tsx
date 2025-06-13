@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import ChatWidget from './components/ChatWidget'
+import ChatSection from './components/ChatSection'
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -103,6 +104,7 @@ function App() {
           </div>
         </section>
 
+        <ChatSection />
         <ChatWidget />
 
         <section className="features">
