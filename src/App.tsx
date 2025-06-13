@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import ChatWidget from './components/ChatWidget'
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -102,6 +103,8 @@ function App() {
           </div>
         </section>
 
+        <ChatWidget />
+
         <section className="features">
           <div className="container">
             <div className="features-grid">
@@ -168,26 +171,33 @@ function App() {
       </main>
 
       <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-section">
-              <h4>Espacio Doméstico</h4>
-              <p>Tu destino para muebles y electrodomésticos de segunda mano con calidad garantizada.</p>
-            </div>
-            <div className="footer-section">
-              <h4>Contacto</h4>
-              <p>Email: info@espaciodomestico.com</p>
-              <p>Teléfono: (123) 456-7890</p>
-            </div>
-            <div className="footer-section">
-              <h4>Horario</h4>
-              <p>Lunes a Viernes: 9:00 - 18:00</p>
-              <p>Sábados: 10:00 - 15:00</p>
-            </div>
+        <div className="footer-content">
+          <div className="footer-section">
+            <h3>Contacto</h3>
+            <p>📍 Calle Principal 123</p>
+            <p>📞 +34 123 456 789</p>
+            <p>✉️ info@espaciodomestico.com</p>
           </div>
-          <div className="footer-bottom">
-            <p>&copy; 2024 Espacio Doméstico. Todos los derechos reservados.</p>
+          <div className="footer-section">
+            <h3>Horario</h3>
+            <p>Lunes - Viernes: 9:00 - 20:00</p>
+            <p>Sábados: 10:00 - 18:00</p>
+            <p>Domingos: Cerrado</p>
           </div>
+          <div className="footer-section map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.123456789012!2d-5.8491234!3d43.3634567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd368c9c2c5c5c5c%3A0x1234567890abcdef!2sEspacio%20Dom%C3%A9stico%2C%20C.%20Juan%20M%20S%C3%A1nchez-Oca%C3%B1a%2C%2033010%20Oviedo%2C%20Asturias!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; 2024 Espacio Doméstico. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>
