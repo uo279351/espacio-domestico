@@ -216,7 +216,13 @@ function App() {
           </div>
           <div className="footer-bottom">
             <p>&copy; 2025 Espacio Doméstico. Todos los derechos reservados.</p>
-            <p className="powered-by">Desarrollado con tecnología <a href="https://nuberu.com" target="_blank" rel="noopener noreferrer">Nuberu</a></p>
+            <p className="powered-by">
+              Desarrollado con tecnología 
+              <a href="https://nuberu.com" target="_blank" rel="noopener noreferrer" className="nuberu-link">
+                Nuberu
+                <img src="/img/svg_nuberu.svg" alt="Nuberu" className="nuberu-logo" />
+              </a>
+            </p>
           </div>
         </div>
       </footer>

@@ -589,6 +589,10 @@ body {
 .powered-by {
   font-size: 0.85rem !important;
   color: #999 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .powered-by a {
@@ -659,4 +663,24 @@ main {
   width: 100%;
   height: 100%;
   border-radius: 8px;
+}
+
+.nuberu-link {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.25rem;
+  gap: 0.3rem;
+}
+
+.nuberu-logo {
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.3s ease;
+  filter: invert(32%) sepia(98%) saturate(1234%) hue-rotate(202deg) brightness(97%) contrast(101%);
+  margin: 0 auto;
+  display: block;
+}
+
+.nuberu-link:hover .nuberu-logo {
+  transform: scale(1.1);
 }
