@@ -26,7 +26,7 @@
 .logo-text {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-color);
+  color: #1e293b;
   letter-spacing: -0.5px;
 }
 
@@ -68,6 +68,22 @@
   --text-color: #1e293b;
   --border-color: #e2e8f0;
   --container-width: 1280px;
+}
+
+[data-theme="dark"] {
+  --primary-color: #60a5fa;
+  --primary-hover: #3b82f6;
+  --secondary-color: #94a3b8;
+  --background-color: #0f172a;
+  --text-color: #f1f5f9;
+  --border-color: #334155;
+  --chat-bg: #1e293b;
+  --chat-border: #334155;
+  --chat-input-bg: #0f172a;
+  --chat-message-bg: #334155;
+  --chat-message-text: #f1f5f9;
+  --feature-bg: #1e293b;
+  --feature-border: #334155;
 }
 
 * {
@@ -127,6 +143,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 3rem;
+  position: relative;
 }
 
 .nav-links {
@@ -135,10 +152,11 @@ body {
   gap: 2.5rem;
   align-items: center;
   font-size: 0.95rem;
+  margin-right: 3rem;
 }
 
 .nav-links a {
-  color: var(--text-color);
+  color: #1e293b;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -165,7 +183,7 @@ body {
 
 .nav-links .button-secondary {
   background-color: white;
-  color: var(--text-color);
+  color: #1e293b;
   border: 1px solid var(--border-color);
 }
 
@@ -371,7 +389,9 @@ body {
 /* Features */
 .features {
   padding: 6rem 0;
-  background-color: white;
+  background-color: var(--feature-bg);
+  border-top: 1px solid var(--feature-border);
+  border-bottom: 1px solid var(--feature-border);
 }
 
 .features-grid {
@@ -382,6 +402,16 @@ body {
 
 .feature {
   text-align: left;
+  background-color: var(--feature-bg);
+  border: 1px solid var(--feature-border);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
@@ -616,6 +646,7 @@ body {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    margin-right: 0;
   }
 
   .hero-title {
@@ -639,6 +670,11 @@ body {
   .map-container {
     grid-column: span 1;
     height: 350px;
+  }
+
+  .theme-toggle {
+    position: static;
+    margin: 0.5rem 0;
   }
 }
 
@@ -683,4 +719,80 @@ main {
 
 .nuberu-link:hover .nuberu-logo {
   transform: scale(1.1);
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #1e293b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--primary-color);
+}
+
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(15deg);
+}
+
+.chat-section {
+  background-color: var(--chat-bg);
+  border: 1px solid var(--chat-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.chat-header {
+  background-color: var(--chat-bg);
+  border-bottom: 1px solid var(--chat-border);
+}
+
+.chat-messages {
+  background-color: var(--chat-bg);
+}
+
+.chat-input-container {
+  background-color: var(--chat-bg);
+  border-top: 1px solid var(--chat-border);
+}
+
+.chat-input {
+  background-color: var(--chat-input-bg);
+  color: var(--text-color);
+  border: 1px solid var(--chat-border);
+}
+
+.chat-message {
+  background-color: var(--chat-message-bg);
+  color: var(--chat-message-text);
+}
+
+.chat-message.user {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
 }
