@@ -97,6 +97,38 @@ const ChatSection = () => {
     }
   };
 
+  const handleSendMessage = () => {
+    if (inputValue.trim()) {
+      const userMessage: Message = {
+        id: Date.now(),
+        text: inputValue,
+        sender: 'user',
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, userMessage]);
+      setInputValue('');
+      setIsLoading(true);
+
+      // Aquí iría la lógica para procesar el mensaje y obtener la respuesta
+      setTimeout(() => {
+        const botMessage: Message = {
+          id: Date.now() + 1,
+          text: 'Gracias por tu mensaje. Te responderemos pronto.',
+          sender: 'bot',
+          timestamp: new Date(),
+        };
+        setMessages(prev => [...prev, botMessage]);
+        setIsLoading(false);
+      }, 1000);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
+
   return (
     <section ref={sectionRef} className={`chat-section ${isExpanded ? 'expanded' : ''}`}>
       <div className="container">
@@ -157,6 +189,7 @@ const ChatSection = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Escribe tu mensaje..."
                 disabled={isLoading}
+                onKeyPress={handleKeyPress}
               />
               <button type="submit" disabled={isLoading || !inputValue.trim()}>
                 Enviar
